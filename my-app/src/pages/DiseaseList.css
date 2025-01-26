@@ -1,0 +1,17 @@
+.disease-list {
+    padding: 20px;
+    text-align: center;
+}
+
+.disease-list h1 {
+    font-size: 2.2em;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.disease-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}

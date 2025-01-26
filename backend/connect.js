@@ -1,27 +1,19 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const mongoose = require('mongoose');
 require('dotenv').config({ path: './config.env' });
-
-const client = new MongoClient(process.env.ATLAS_URI, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    },
-});
-
-let database;
 
 module.exports = {
     connectToServer: async () => {
         try {
-            await client.connect();
-            database = client.db('PlantHeal360'); // Replace with your database name
-            console.log('Connected to MongoDB Atlas');
+            console.log('Attempting to connect to MongoDB Atlas...');
+            await mongoose.connect(process.env.ATLAS_URI, {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                serverSelectionTimeoutMS: 30000, // Set timeout for MongoDB server selection
+            });
+            console.log('Connected to MongoDB Atlas via Mongoose');
         } catch (error) {
-            console.error('Error connecting to MongoDB:', error);
+            console.error('Error connecting to MongoDB Atlas:', error.message);
+            process.exit(1); // Exit the process on connection failure
         }
     },
-    getDb: () => {
-        return database;
-    }
 };

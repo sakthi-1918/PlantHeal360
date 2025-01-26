@@ -1,19 +1,20 @@
-
 const express = require('express');
 const cors = require('cors');
-const path = require('path'); 
 const connect = require('./connect');
-
+const diseaseRoutes = require('./routes/diseaseRoutes');
 
 const app = express();
 const PORT = 3005;
 
+// Middleware
 app.use(cors());
-app.use(express.json()); // Parse incoming JSON requests
+app.use(express.json()); // Parse JSON request bodies
 
+// Use routes
+app.use('/api/diseases', diseaseRoutes);
 
-
+// Start the server after connecting to MongoDB
 app.listen(PORT, async () => {
-    await connect.connectToServer();
-    console.log(`Server is running on port ${PORT}`);
+    await connect.connectToServer(); // Connect to MongoDB
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
