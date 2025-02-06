@@ -1,34 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar'; // Import the Navbar component
 import DiseaseList from './pages/DiseaseList';
+import Details from './pages/Details';
+import Home from './pages/Home';
 
 function App() {
-    return (
-        <Router>
-            <div>
-                {/* App Header */}
-                <header style={headerStyle}>
-                    <h1>Plant Disease Identifier</h1>
-                </header>
+  return (
+    <Router>
+      <div>
+        {/* Navbar */}
+        <Navbar />
 
-                {/* App Routes */}
-                <Routes>
-                    <Route path="/" element={<DiseaseList />} />
-                    {/* Add more routes as needed */}
-                </Routes>
-            </div>
-        </Router>
-    );
+        {/* Main content */}
+        <div style={{ marginTop: '80px' }}>
+          <Routes>
+            <Route path="/library" element={<DiseaseList />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<Details />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
+  );
 }
-
-// Basic inline styling for the header
-const headerStyle = {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    textAlign: 'center',
-    padding: '15px 0',
-    marginBottom: '20px',
-    fontSize: '1.5em',
-};
 
 export default App;
