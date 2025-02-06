@@ -1,112 +1,171 @@
 /* Navbar container */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background-color: #388645;  /* New shade of green */
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;  /* Ensure it starts from the left */
-    z-index: 100;
-    transition: background-color 0.3s ease;
-    box-sizing: border-box;  /* Prevents the navbar from going out of screen */
-  }
-  
-  /* Hover state */
-  .navbar:hover {
-    background-color: #2d793e;  /* Slightly darker shade on hover */
-  }
-  
-  /* Logo style */
-  .navbar .logo {
-    font-size: 2em;
-    font-weight: 700;
-    font-family: 'Arial', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Logo hover effect */
-  .navbar:hover .logo {
-    transform: scale(1.05);  /* Logo grows slightly on hover */
-  }
-  
-  /* Navigation links container */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #388645;  /* New shade of green */
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Hover state */
+.navbar:hover {
+  background-color: #2d793e;  /* Slightly darker shade on hover */
+}
+
+/* Logo style */
+.navbar .logo {
+  font-size: 2em;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+/* Logo hover effect */
+.navbar:hover .logo {
+  transform: scale(1.05);  /* Logo grows slightly on hover */
+}
+
+/* Navigation links container */
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Individual navigation links */
+.navbar .nav-link {
+  margin-right: 25px;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for links */
+.navbar .nav-link:hover {
+  color: #ffb400;  /* Bright yellow on hover */
+  transform: translateY(-3px);  /* Lift effect on hover */
+}
+
+/* Active link style */
+.navbar .nav-link.active {
+  color: #ffb400;
+  font-weight: 700;
+}
+
+/* Try free button style */
+.navbar .try-free {
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: white;
+  background-color: #ffb400;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for button */
+.navbar .try-free:hover {
+  background-color: #d89c00;
+  transform: scale(1.05);  /* Button slightly grows on hover */
+}
+
+/* Remove right margin for last link */
+.navbar .nav-link:last-child {
+  margin-right: 0;
+}
+
+/* Hamburger Menu (for small screens) */
+.hamburger {
+  display: none;  /* Hidden by default */
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+  width: 30px;
+  height: 25px;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Transform hamburger icon to 'X' when menu is active */
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Show hamburger on small screens */
+@media screen and (max-width: 768px) {
   .navbar .nav-links {
-    display: flex;
-    align-items: center;
+    display: none; /* Hide links by default */
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Adjust based on navbar height */
+    left: 0;
+    width: 100%;
+    background-color: #388645;  /* Same as navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 99;
   }
-  
-  /* Individual navigation links */
+
+  .navbar .nav-links.active {
+    display: flex; /* Show links when active */
+    animation: slideIn 0.3s ease-out;
+  }
+
   .navbar .nav-link {
-    margin-right: 25px;
-    font-size: 1.2em;
-    font-weight: 500;
-    text-decoration: none;
-    color: white;
-    transition: color 0.3s ease, transform 0.3s ease;
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
   }
-  
-  /* Hover effect for links */
-  .navbar .nav-link:hover {
-    color: #ffb400;  /* Bright yellow on hover */
-    transform: translateY(-3px);  /* Lift effect on hover */
-  }
-  
-  /* Active link style */
-  .navbar .nav-link.active {
-    color: #ffb400;
-    font-weight: 700;
-  }
-  
-  /* Try free button style */
+
   .navbar .try-free {
-    padding: 12px 25px;
-    font-size: 1.1em;
-    font-weight: 600;
-    color: white;
-    background-color: #ffb400;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px 0;
   }
-  
-  /* Hover effect for button */
-  .navbar .try-free:hover {
-    background-color: #d89c00;
-    transform: scale(1.05);  /* Button slightly grows on hover */
+
+  .hamburger {
+    display: flex; /* Show hamburger on small screens */
   }
-  
-  /* Remove right margin for last link */
-  .navbar .nav-link:last-child {
-    margin-right: 0;
+}
+
+/* Slide-in animation for menu */
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
   }
-  
-  /* Media query for responsive design */
-  @media screen and (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .navbar .nav-links {
-      flex-direction: column;
-      margin-top: 10px;
-    }
-  
-    .navbar .nav-link {
-      margin-right: 0;
-      margin-bottom: 15px;
-    }
-  
-    .navbar .try-free {
-      margin-top: 10px;
-    }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
+}

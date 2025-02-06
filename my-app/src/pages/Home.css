@@ -5,13 +5,13 @@ body {
     margin: 0;
     padding: 0;
 }
-  
+
 .home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-  
+
 /* Main Content Container */
 .main-content-container {
     display: flex;
@@ -20,31 +20,31 @@ body {
     width: 80%;
     gap: 30px;
 }
-  
+
 /* Text Section */
 .text-section {
     flex: 1;
     max-width: 50%;
 }
-  
+
 .title {
     font-size: 2.5rem;
     font-weight: bold;
     color: #2e7d32;
     line-height: 1.2;
 }
-  
+
 .title span {
-    color: #ffb400; /* Changed to yellow */
+    color: #ffb400;
 }
-  
+
 .description {
     font-size: 1.2rem;
     color: #333;
     line-height: 1.5;
     margin-top: 20px;
 }
-  
+
 .cta-button {
     padding: 12px 25px;
     background-color: #388e3c;
@@ -54,12 +54,13 @@ body {
     cursor: pointer;
     margin-top: 20px;
     font-size: 18px;
+    transition: 0.3s;
 }
-  
+
 .cta-button:hover {
     background-color: #2c6d2f;
 }
-  
+
 .image-section {
     flex: 1;
     display: flex;
@@ -67,14 +68,15 @@ body {
     justify-content: center;
     align-items: center;
 }
-  
+
 .plant-image {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
-  
+
+/* Diagnosis Card */
 .diagnosis-card {
     padding: 20px;
     background-color: #f9f9f9;
@@ -83,21 +85,21 @@ body {
     text-align: center;
     margin-top: 20px;
 }
-  
+
 .plant-status {
     font-size: 1.2rem;
 }
-  
+
 .plant-name {
     font-size: 1.5rem;
     font-weight: bold;
 }
-  
+
 .diagnosis {
     font-size: 1rem;
     color: #888;
 }
-  
+
 .cure-button {
     background-color: #4caf50;
     color: white;
@@ -105,12 +107,13 @@ body {
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    transition: 0.3s;
 }
-  
+
 .cure-button:hover {
     background-color: #45a049;
 }
-  
+
 /* How to Identify Disease Section */
 .identify-disease-container {
     padding: 50px;
@@ -120,19 +123,16 @@ body {
     border-radius: 10px;
     width: 80%;
 }
-  
-/* Heading Style */
+
 .how-to-heading {
     font-size: 2rem;
     color: #2e7d32;
 }
-  
-/* Steps Container */
+
 .steps-container {
     margin-top: 30px;
 }
-  
-/* Animation for Steps when Page Loads */
+
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -143,8 +143,7 @@ body {
         transform: translateY(0);
     }
 }
-  
-/* Style for Each Step */
+
 .step {
     padding: 15px;
     margin: 10px 0;
@@ -152,69 +151,51 @@ body {
     cursor: pointer;
     border-radius: 5px;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    opacity: 0; /* Initially hidden */
-    animation: fadeInUp 0.8s forwards; /* Apply animation */
+    opacity: 0;
+    animation: fadeInUp 0.8s forwards;
 }
-  
-/* Add delay for each step */
-.step:nth-child(1) {
-    animation-delay: 0.2s; /* Delay for step 1 */
-}
-  
-.step:nth-child(2) {
-    animation-delay: 0.4s; /* Delay for step 2 */
-}
-  
-.step:nth-child(3) {
-    animation-delay: 0.6s; /* Delay for step 3 */
-}
-  
-.step:nth-child(4) {
-    animation-delay: 0.8s; /* Delay for step 4 */
-}
-  
-.step:nth-child(5) {
-    animation-delay: 1s; /* Delay for step 5 */
-}
-  
-/* Hover Effect on Steps */
+
+.step:nth-child(1) { animation-delay: 0.1s; }
+.step:nth-child(2) { animation-delay: 0.2s; }
+.step:nth-child(3) { animation-delay: 0.3s; }
+.step:nth-child(4) { animation-delay: 0.4s; }
+.step:nth-child(5) { animation-delay: 0.5s; }
+
 .step:hover {
     transform: scale(1.05);
     background-color: #d8f0c5;
 }
-  
-/* Active Step Styling */
+
 .active-step {
     background-color: #81c784;
 }
-  
-/* Step Numbers */
+
 .step-number {
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: 15px;
 }
-  
+
 /* Treatment Section */
 .treatment-section {
     background-color: #e8f5e9;
     padding: 40px;
     text-align: center;
 }
-  
+
 .treatment-heading {
     font-size: 2.5rem;
     font-weight: bold;
     color: #2e7d32;
 }
-  
+
 .treatment-description {
     font-size: 1.2rem;
     color: #333;
     margin-top: 20px;
 }
-  
-/* Footer Container */
+
+/* Footer */
 .footer-container {
     background-color: #333;
     color: white;
@@ -222,25 +203,42 @@ body {
     width: 100%;
     text-align: center;
 }
-  
+
 .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-  
+
 .footer-links a {
     color: white;
     margin: 5px 10px;
     text-decoration: none;
 }
-  
+
 .footer-links a:hover {
     text-decoration: underline;
 }
-  
+
 .footer-company-details {
     font-size: 0.8rem;
     color: #bbb;
     margin-top: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-content-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-section, .image-section {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .identify-disease-container {
+        padding: 30px;
+    }
 }

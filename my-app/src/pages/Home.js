@@ -1,54 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import Navbar from "../components/Navbar";
 import "../assets/image1.jpeg";
 import "./Home.css";
 
 function Home() {
-  const [activeStep, setActiveStep] = useState(null);
-
-  const handleStepClick = (stepNumber) => {
-    setActiveStep(stepNumber);
-  };
+  const [activeStep, setActiveStep] = useState(1);
 
   useEffect(() => {
-    // Select all the steps
-    const steps = document.querySelectorAll('.step');
+    const interval = setInterval(() => {
+      setActiveStep((prevStep) => (prevStep === 5 ? 1 : prevStep + 1));
+    }, 4000); // Change step every 4 seconds
 
-    // Set up an IntersectionObserver to detect when the steps come into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          // Apply fade-in effect with a delay
-          entry.target.style.transition = 'opacity 1s ease-out, background-color 0.5s ease-out';
-          entry.target.style.opacity = 1;
-
-          // Add dark green background with text highlight after fade-in
-          setTimeout(() => {
-            entry.target.classList.add('highlighted');
-          }, index * 2000); // Delay each step by 2 seconds
-        }
-      });
-    }, {
-      threshold: 0.5, // Trigger when 50% of the element is in view
-    });
-
-    // Observe each step element
-    steps.forEach((step) => {
-      observer.observe(step);
-    });
-
-    // Clean up observer when the component unmounts
-    return () => {
-      observer.disconnect();
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="home-container">
-      {/* Navigation Bar */}
-      {/* <Navbar /> */}
-
       {/* Main Content */}
       <div className="main-content-container">
         <div className="text-section">
@@ -79,14 +46,13 @@ function Home() {
       {/* How to Identify a Disease Section */}
       <div className="identify-disease-container">
         <h2 className="how-to-heading">
-          <span>How PlantHeal360 works</span> 
+          <span>How PlantHeal360 works</span>
         </h2>
         <div className="steps-container">
           {[1, 2, 3, 4, 5].map((stepNumber) => (
             <div
               key={stepNumber}
               className={`step ${activeStep === stepNumber ? "active-step" : ""}`}
-              onClick={() => handleStepClick(stepNumber)}
             >
               <span className="step-number">{stepNumber}</span>
               {stepNumber === 1 && "Open PlantHeal and tap the camera button in the Plant Health tab"}
@@ -120,10 +86,6 @@ function Home() {
             <Link to="/support">Support</Link>
             <Link to="/personal-info">Do not sell or share my personal information</Link>
           </div>
-          <p className="footer-company-details">
-            Copyright © Makx Controls | Via Nino Bonnet 10, 20154, Milan, Italy | VAT, tax code, and number of registration with the Milan Monza Brianza Lodi Company Register
-            13328610965 | REA number MI 2781486 | Contributed capital €150,000.00 fully paid-in | Sole shareholder company subject to the management and coordination of Bending Spoons S.p.A.
-          </p>
         </div>
       </footer>
     </div>
