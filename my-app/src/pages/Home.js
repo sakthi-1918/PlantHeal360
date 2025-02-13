@@ -23,23 +23,15 @@ function Home() {
             Identify and cure <span>plant diseases</span> with PlantHeal
           </h1>
           <p className="description">
-            Is your green buddy dying? Try the Plantheal360 website to identify the cause and get extensive disease and care info in a snap.
+            Is your green buddy dying? Try the Plantheal360 website to identify
+            the cause and get extensive disease and care info in a snap.
           </p>
-          <button className="cta-button">Diagnose Now</button>
-        </div>
-
-        <div className="image-section">
-          <img
-            src={require("../assets/image2.jpeg")}
-            alt="plant diagnosis"
-            className="plant-image"
-          />
-          <div className="diagnosis-card">
-            <p className="plant-status">🌱 Sick plant</p>
-            <h3 className="plant-name">Brinjal</h3>
-            <p className="diagnosis">Overwatering and nutrient deficiency detected</p>
-            <button className="cure-button">Cure</button>
-          </div>
+          <button
+            className="cta-button"
+            onClick={() => (window.location.href = "http://127.0.0.1:5000")}
+          >
+            Diagnose Now
+          </button>
         </div>
       </div>
 
@@ -52,27 +44,47 @@ function Home() {
           {[1, 2, 3, 4, 5].map((stepNumber) => (
             <div
               key={stepNumber}
-              className={`step ${activeStep === stepNumber ? "active-step" : ""}`}
+              className={`step ${
+                activeStep === stepNumber ? "active-step" : ""
+              }`}
             >
               <span className="step-number">{stepNumber}</span>
-              {stepNumber === 1 && "Open PlantHeal and tap the camera button in the Plant Health tab"}
-              {stepNumber === 2 && "Place your sick plant at the center of the frame"}
-              {stepNumber === 3 && "Snap photos of the diseased parts of a leaf or multiple leaves"}
-              {stepNumber === 4 && "Answer a couple of questions from our bot to get accurate results"}
-              {stepNumber === 5 && "That’s it! Now you know the issue and how to cure it"}
+              {stepNumber === 1 &&
+                "Open PlantHeal and tap the camera button in the Plant Health tab"}
+              {stepNumber === 2 &&
+                "Place your sick plant at the center of the frame"}
+              {stepNumber === 3 &&
+                "Snap photos of the diseased parts of a leaf or multiple leaves"}
+              {stepNumber === 4 &&
+                "Answer a couple of questions from our bot to get accurate results"}
+              {stepNumber === 5 &&
+                "That’s it! Now you know the issue and how to cure it"}
             </div>
           ))}
         </div>
-        <button className="cta-button">Upload image</button>
+        <button
+          className="cta-button"
+          onClick={() => (window.location.href = "http://127.0.0.1:5000")}
+        >
+          Upload image
+        </button>
       </div>
 
       {/* Additional Section */}
       <div className="treatment-section">
-        <h3 className="treatment-heading">Stop killing – start treating your plants!</h3>
+        <h3 className="treatment-heading">
+          Stop killing – start treating your plants!
+        </h3>
         <p className="treatment-description">
-          Diagnose issues quickly and get actionable tips to help your plants thrive. Use Plantheal360 to become a plant care expert!
+          Diagnose issues quickly and get actionable tips to help your plants
+          thrive. Use Plantheal360 to become a plant care expert!
         </p>
-        <button className="cta-button">Diagnose Now</button>
+        <button
+          className="cta-button"
+          onClick={() => (window.location.href = "http://127.0.0.1:5000")}
+        >
+          Diagnose Now
+        </button>
       </div>
 
       {/* Footer Section */}
@@ -84,7 +96,9 @@ function Home() {
             <Link to="/privacy">Privacy policy</Link>
             <Link to="/cookies">Cookie policy</Link>
             <Link to="/support">Support</Link>
-            <Link to="/personal-info">Do not sell or share my personal information</Link>
+            <Link to="/personal-info">
+              Do not sell or share my personal information
+            </Link>
           </div>
         </div>
       </footer>

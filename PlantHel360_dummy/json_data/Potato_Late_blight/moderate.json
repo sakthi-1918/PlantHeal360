@@ -1,0 +1,9 @@
+{
+  "severity": "moderate",
+  "application_frequency": "Once every 5 days",
+  "fertilizer": {
+    "Nitrogen": 70,
+    "Phosphorus": 30,
+    "Potassium": 40
+  }
+}

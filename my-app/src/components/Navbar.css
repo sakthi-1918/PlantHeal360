@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background-color: #388645;  /* New shade of green */
+  background-color: #388645; /* New shade of green */
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -18,14 +18,14 @@
 
 /* Hover state */
 .navbar:hover {
-  background-color: #2d793e;  /* Slightly darker shade on hover */
+  background-color: #2d793e; /* Slightly darker shade on hover */
 }
 
 /* Logo style */
 .navbar .logo {
   font-size: 2em;
   font-weight: 700;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: transform 0.3s ease;
@@ -33,7 +33,7 @@
 
 /* Logo hover effect */
 .navbar:hover .logo {
-  transform: scale(1.05);  /* Logo grows slightly on hover */
+  transform: scale(1.05); /* Logo grows slightly on hover */
 }
 
 /* Navigation links container */
@@ -54,8 +54,8 @@
 
 /* Hover effect for links */
 .navbar .nav-link:hover {
-  color: #ffb400;  /* Bright yellow on hover */
-  transform: translateY(-3px);  /* Lift effect on hover */
+  color: #ffb400; /* Bright yellow on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
 }
 
 /* Active link style */
@@ -80,7 +80,7 @@
 /* Hover effect for button */
 .navbar .try-free:hover {
   background-color: #d89c00;
-  transform: scale(1.05);  /* Button slightly grows on hover */
+  transform: scale(1.05); /* Button slightly grows on hover */
 }
 
 /* Remove right margin for last link */
@@ -90,7 +90,7 @@
 
 /* Hamburger Menu (for small screens) */
 .hamburger {
-  display: none;  /* Hidden by default */
+  display: none; /* Hidden by default */
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -130,7 +130,7 @@
     top: 70px; /* Adjust based on navbar height */
     left: 0;
     width: 100%;
-    background-color: #388645;  /* Same as navbar */
+    background-color: #388645; /* Same as navbar */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     z-index: 99;
@@ -168,4 +168,83 @@
     transform: translateY(0);
     opacity: 1;
   }
+}
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: black;
+}
+
+.logout-btn {
+  background: red;
+  color: rgb(94, 87, 87);
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.logout-btn:hover {
+  background: darkred;
 }

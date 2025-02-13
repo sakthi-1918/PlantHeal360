@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='CSS/style.css') }}"
+    />
+    <title>Plant Disease Prediction</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🌱 Upload Image for Plant Disease Prediction</h1>
+      <form action="/predict" method="POST" enctype="multipart/form-data">
+        <label for="image">📷 Choose an Image:</label>
+        <input type="file" name="image" id="image" accept="image/*" required />
+        <img id="image-preview" alt="Uploaded Image Preview" />
+
+        <label for="severity">⚠️ Severity:</label>
+        <select name="severity" id="severity" required>
+          <option value="Mild">Mild</option>
+          <option value="Moderate">Moderate</option>
+          <option value="High">High</option>
+        </select>
+
+        <label for="acreage">📏 Acreage (in acres):</label>
+        <input
+          type="number"
+          name="acreage"
+          id="acreage"
+          step="0.1"
+          min="0.1"
+          required
+        />
+
+        <button type="submit">📤 Upload</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("image")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const img = document.getElementById("image-preview");
+              img.src = e.target.result;
+              img.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+    </script>
+  </body>
+</html>
