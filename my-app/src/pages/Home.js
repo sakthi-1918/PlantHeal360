@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import GoogleTranslate from "../components/GoogleTranslate"; // Import the Translate Component
 import "../assets/image1.jpeg";
 import "./Home.css";
 
