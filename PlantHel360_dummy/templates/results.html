@@ -5,51 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='CSS/style.css') }}"
+      href="{{ url_for('static', filename='CSS/style2.css') }}"
     />
     <title>Prediction Results</title>
   </head>
   <body>
+    <a
+      href="http://localhost:3000/home"
+      style="position: absolute; top: 10px; left: 10px"
+    >
+      <button
+        style="
+          padding: 8px 15px;
+          font-size: 16px;
+          background-color: #4caf50;
+          color: white;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+        "
+      >
+        🏠 Go to Home
+      </button>
+    </a>
+
     <div class="container">
-      <h1>🌱 Prediction Results</h1>
-
-      {% if error %}
-      <div class="error-message">
-        <p><strong>Error:</strong> {{ error }}</p>
+      <!-- Left Section: Uploaded Image and Inputs -->
+      <div class="left-section">
+        {% if not error %}
+        <img
+          src="{{ image_path }}"
+          alt="Uploaded Image"
+          class="uploaded-image"
+        />
+        {% endif %}
       </div>
-      {% else %}
-      <img src="{{ image_path }}" alt="Uploaded Image" class="uploaded-image" />
 
-      <div class="result-card">
-        <h2>🌿 Plant Name: <span>{{ plant_prediction }}</span></h2>
-        <h3>
-          🦠 Disease Name: <span class="disease">{{ disease_prediction }}</span>
-        </h3>
-        <p>
-          <strong>🛑 Severity:</strong>
-          <span class="severity {{ recommendations.severity }}"
-            >{{ recommendations.severity | capitalize }}</span
-          >
-        </p>
-        <p>
-          <strong>📏 Acreage:</strong>
-          <span>{{ recommendations.acre}} acres</span>
-        </p>
-        <p>
-          <strong>🔄 Application Frequency:</strong>
-          <span>{{ recommendations.application_frequency }}</span>
-        </p>
+      <!-- Right Section: Prediction Results -->
+      <div class="right-section">
+        <h1>🌱 Prediction Results</h1>
 
-        <h2>🌾 Fertilizer Recommendations</h2>
-        <ul class="fertilizer-list">
-          {% for key, value in recommendations.fertilizer_composition.items() %}
-          <li><strong>{{ key }}</strong>: {{ value }} kg</li>
-          {% endfor %}
-        </ul>
+        {% if error %}
+        <div class="error-message">
+          <p><strong>Error:</strong> {{ error }}</p>
+        </div>
+        {% else %}
+        <div class="result-card">
+          <h2>🌿 Plant Name: <span>{{ plant_prediction }}</span></h2>
+          <h3>
+            🦠 Disease Name:
+            <span class="disease">{{ disease_prediction }}</span>
+          </h3>
+
+          <p>
+            <strong>🛑 Severity:</strong>
+            <span class="severity {{ recommendations.severity }}">
+              {{ recommendations.severity | capitalize }}
+            </span>
+          </p>
+
+          <p>
+            <strong>📏 Acreage:</strong>
+            <span>{{ recommendations.acre}} acres</span>
+          </p>
+          <p>
+            <strong>🔄 Application Frequency:</strong>
+            <span>{{ recommendations.application_frequency }}</span>
+          </p>
+
+          <h2>🌾 Fertilizer Recommendations</h2>
+          <ul class="fertilizer-list">
+            {% for key, value in recommendations.fertilizer_composition.items()
+            %}
+            <li><strong>{{ key }}</strong>: {{ value }} g</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <a href="/" class="btn">🔄 Try Another Image</a>
       </div>
-      {% endif %}
-
-      <a href="/" class="btn">🔄 Try Another Image</a>
     </div>
   </body>
 </html>
