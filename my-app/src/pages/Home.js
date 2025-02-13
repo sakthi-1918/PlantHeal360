@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import GoogleTranslate from "../components/GoogleTranslate"; // Import the Translate Component
 import "../assets/image1.jpeg";
 import "./Home.css";
 
@@ -16,6 +17,9 @@ function Home() {
 
   return (
     <div className="home-container">
+      {/* Google Translate Switcher */}
+      
+
       {/* Main Content */}
       <div className="main-content-container">
         <div className="text-section">
@@ -44,9 +48,7 @@ function Home() {
           {[1, 2, 3, 4, 5].map((stepNumber) => (
             <div
               key={stepNumber}
-              className={`step ${
-                activeStep === stepNumber ? "active-step" : ""
-              }`}
+              className={`step ${activeStep === stepNumber ? "active-step" : ""}`}
             >
               <span className="step-number">{stepNumber}</span>
               {stepNumber === 1 &&
