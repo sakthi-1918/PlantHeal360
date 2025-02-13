@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import GoogleTranslate from "./GoogleTranslate";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,9 +86,7 @@ const Navbar = () => {
           </div>
         )}
 
-        <button className="try-free" onClick={toggleMenu}>
-          Try for Free
-        </button>
+<GoogleTranslate />
       </div>
     </nav>
   );
