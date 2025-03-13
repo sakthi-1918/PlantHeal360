@@ -5,8 +5,19 @@ from torchvision import models, transforms
 from PIL import Image
 import os
 import json
+from flask import Flask, request, jsonify
+from flask_cors import CORS  # Enable CORS for frontend-backend communication
 
 app = Flask(__name__)
+CORS(app, resources={r"/receive-username": {"origins": "http://localhost:3000"}})
+
+@app.route('/receive-username', methods=['POST'])
+def receive_username():
+    data = request.get_json()
+    username = data.get('username', '')
+    return jsonify({"message": f"Hello, {username}!"})
+
+
 
 # Automatically generate plant and disease class names based on folder structure
 def get_class_names(dataset_directory):
@@ -38,8 +49,8 @@ class MultiOutputModel(nn.Module):
         return plant_output, disease_output
 
 # Load the model
-num_plants = 2  # Number of plant classes (e.g., Potato, Tomato)
-num_diseases = 6  # Number of disease classes
+num_plants = 3  # Number of plant classes (e.g., Potato, Tomato)
+num_diseases =16   # Number of disease classes
 model = MultiOutputModel(num_plants, num_diseases)
 
 # Load model weights

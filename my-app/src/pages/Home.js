@@ -17,7 +17,6 @@ function Home() {
   return (
     <div className="home-container">
       {/* Google Translate Switcher */}
-      
 
       {/* Main Content */}
       <div className="main-content-container">
@@ -47,19 +46,18 @@ function Home() {
           {[1, 2, 3, 4, 5].map((stepNumber) => (
             <div
               key={stepNumber}
-              className={`step ${activeStep === stepNumber ? "active-step" : ""}`}
+              className={`step ${
+                activeStep === stepNumber ? "active-step" : ""
+              }`}
             >
               <span className="step-number">{stepNumber}</span>
-              {stepNumber === 1 &&
-                "Open PlantHeal and tap the camera button in the Plant Health tab"}
-              {stepNumber === 2 &&
-                "Place your sick plant at the center of the frame"}
-              {stepNumber === 3 &&
-                "Snap photos of the diseased parts of a leaf or multiple leaves"}
+              {stepNumber === 1 && "Open PlantHeal and tap the Diagnose Button"}
+              {stepNumber === 2 && "Upload your sick plant image"}
+              {stepNumber === 3 && "Answer a couple of questions"}
               {stepNumber === 4 &&
-                "Answer a couple of questions from our bot to get accurate results"}
-              {stepNumber === 5 &&
                 "That’s it! Now you know the issue and how to cure it"}
+              {stepNumber === 5 &&
+                "Get to know some infos from our Library page"}
             </div>
           ))}
         </div>

@@ -29,7 +29,6 @@ function AppContent() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<Details />} />
-          <Route path="/navbar" element={<Navbar />} />
         </Routes>
       </div>
     </div>

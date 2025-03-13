@@ -54,15 +54,16 @@
           <h2>🌿 Plant Name: <span>{{ plant_prediction }}</span></h2>
           <h3>
             🦠 Disease Name:
-            <span class="disease">{{ disease_prediction }}</span>
+            <span class="disease"
+              >{{ disease_prediction.split('___')[-1] }}</span
+            >
           </h3>
 
           <p>
             <strong>🛑 Severity:</strong>
             <span class="severity {{ recommendations.severity }}">
               {{ recommendations.severity | capitalize }}
-            </span>
-          </p>
+            </span>          </p>
 
           <p>
             <strong>📏 Acreage:</strong>
